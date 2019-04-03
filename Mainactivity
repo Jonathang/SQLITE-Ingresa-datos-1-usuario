@@ -1,0 +1,20 @@
+//metodo para insertar en la base de datos
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        SQLite openHelper = new SQLite(this);
+        SQLiteDatabase db = openHelper.getWritableDatabase();
+
+        if(db != null){
+            ContentValues cv = new ContentValues();
+            cv.put("login", "root");
+            cv.put("password", "123");
+            db.insert("ptvoid", null, cv); // ptvoid nombre de la tabla
+
+
+        }
+    }
+}
