@@ -1,0 +1,23 @@
+//crea la base de datos 
+import android.content.Context;
+        import android.database.sqlite.SQLiteDatabase;
+        import android.database.sqlite.SQLiteOpenHelper;
+
+public class SQLite extends SQLiteOpenHelper {
+    private static final String PTVOID_TABLE_CREATE = "CREATE TABLE ptvoid(_idInicio INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            "login TEXT, password TEXT)";
+    private static final String DB_NAME = "ptvoid.sqlite";
+    private static final int DB_VERSION = 1;
+    public SQLite(Context context) {
+        super(context, DB_NAME, null, DB_VERSION);
+    }
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        db.execSQL(PTVOID_TABLE_CREATE);
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+    }
+}
